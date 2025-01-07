@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: depend
+      run: apt install cpplint cppcheck -y
     - name: lint
       run: make lint
