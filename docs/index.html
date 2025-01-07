@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
+<body>
+	<div id="title_section">
+		<div id="title_inner">
+			<h1>
+				pIDchain (process IDentification chain)!!!
+			</h1>
+
+		</div>
+	</div>
+	</br>
+	</br>
+	<div id="title_section">
+		<div id="title_inner">
+			<div id="font16">
+			pidchain is a really simple tool to find the parents of all processes from your target process to process 0
+			</br><br>usage:</br>
+			&emsp; pidchain -pid=234   #where 234 is the process you wish to get the pid chain for</br>
+			&emsp; -s option supresses the text message</br>
+			&emsp; -d=',' changes the delimiter to a comma</br>
+			</br>
+			&emsp;example:</br>
+			&emsp;&emsp;user@system:!/prompt$ bin/pidchain -s -d=',' -pid=1210288</br>
+			&emsp;&emsp;1210288,1209762,287628,5045,1,0</br>
+			</br></br>
+			&emsp;&emsp;user@system:!/prompt$ bin/pidchain -pid=1210288</br>
+			&emsp;&emsp;pid chain is :1210288<-1209762<-287628<-5045<-1<-0</br>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

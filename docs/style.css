@@ -1,0 +1,44 @@
+body, html {
+	background-image: url("images/backdrop.png");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-attachment: fixed;
+        background-size: contain;
+        background: cover;
+        background-color: white;
+        clear: right;
+}
+#contact {
+         margin: 10px;
+         width: 100%;
+         max-width: 670px;
+         -webkit-align-content: center;
+         align-content: center;
+}
+#heading {
+	font-style: italic;
+        font-weight: bold;
+}
+#title_section{
+	padding: 10px;
+        margin: 5px;
+        width: 100%;
+        max-width: 670px;
+}
+#title_inner {
+	padding: 10px;
+	margin: 5px;
+	background: center;
+	background-color: #aaaaaa;
+	max-width: 670px;
+	clear: both;
+	border-radius: 12px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+        align:center;
+}
+#font24{
+	font-size: 24px;
+}
+
