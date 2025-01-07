@@ -52,11 +52,13 @@ void r_find_origin(string pid, vector<pid_t> *pidslist) {
         try {
           npid = stoi(temp);
           lpid = temp;
+          break;
         } catch (exception &e) {
           if (verbose) {
             cerr << "stoi failure" << temp << endl;
           }
           found_end = true;
+          break;
         }
       }
     }
