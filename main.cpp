@@ -14,12 +14,11 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * */
-//TODO(lou): move to a class structure
+// TODO(lou): move to a class structure
 #include "include/ConfigParser.hpp" //NOLINT
 #include "include/processtools.hpp" //NOLINT
-#include <limits>		                //NOLINT
 #include <iostream>                 //NOLINT
-
+#include <limits>                   //NOLINT
 
 void display_usage() {
   std::cout << "Usage:pidchain -pid=234 where 234 is the process id of the "
@@ -28,14 +27,11 @@ void display_usage() {
   std::cout << "-s supresses text -d='delimiter'  -d defaults to '<-' if you "
                "leave it off"
             << std::endl
-	    << "-n specifies shows the names instead of process id"
-	    << std::endl
-	    << "-r specifies reverse order"
-	    << "\nSo the following command:"
-	    << " prompt: $pidchain -s -r -d=', '  -n -pid=3648"
-	    << "\nMight give an output like this:"
-	    << "systemd, systemd, plasmashell, desktopapp"
-	    << std::endl;
+            << "-n specifies shows the names instead of process id" << std::endl
+            << "-r specifies reverse order" << "\nSo the following command:"
+            << " prompt: $pidchain -s -r -d=', '  -n -pid=3648"
+            << "\nMight give an output like this:"
+            << "systemd, systemd, plasmashell, desktopapp" << std::endl;
 }
 
 int main(int c, char **arg) {
@@ -68,13 +64,12 @@ int main(int c, char **arg) {
         exit(0);
       }
       if (config->has_flag("r")) {
-        for (uint32_t i = process.size() - 1; i !=UINT_MAX; i--) {
-            
-		if (i==0){
-			std::cout << process.at(i);
-		} else {
-			std::cout << process.at(i) << _d;
-		}
+        for (uint32_t i = process.size() - 1; i != UINT_MAX; i--) {
+          if (i == 0) {
+            std::cout << process.at(i);
+          } else {
+            std::cout << process.at(i) << _d;
+          }
         }
       } else {
         for (uint32_t i = 0; i < process.size(); i++) {
