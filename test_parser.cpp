@@ -26,6 +26,7 @@
 
 #include <ConfigParser.hpp>
 #include <ParserExceptions.hpp>
+#include <processtools.hpp>
 #include <cstdlib>
 #include <exception>
 #include <gtest/gtest.h>
