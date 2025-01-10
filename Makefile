@@ -6,7 +6,7 @@ file=main
 ofile='pidchain'
 
 make: 		
-	${compiler} ${cflags} ${file}.cpp -std=${C_version} -I ./include/ -o ${builddir}/${ofile}
+	${compiler} ${cflags} ${file}.cpp -std=${C_version} -I include/ -o ${builddir}/${ofile}
 
 
 lint:

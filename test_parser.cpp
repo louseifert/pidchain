@@ -83,8 +83,22 @@ TEST(Check_restricted, BasicTest) {
   }
   delete (config);
 }
-
-
+/**
+ * Tests the process ID and chaing of the process from the API
+ */
+TEST(test_f_origin, BasicTest){
+  pid_t pid = getpid();
+  vector<std::string> process;
+  r_find_origin(std::to_string(pid), &process);
+  EXPECT_EQ((process.size() > 0), true);
+  process.clear();
+  vector<pid_t> pids;
+  r_find_origin(std::to_string(pid), &pids);
+  {
+    EXPECT_EQ((pids.size() > 0), true);
+    EXPECT_EQ((pids[pids.size()-1]==0),true);
+  }
+}
 /**
  * Tests numeric type conversions
  */
