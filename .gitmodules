@@ -1,0 +1,3 @@
+[submodule "ConfigParser"]
+	path = ConfigParser
+	url = https://github.com/louseifert/ConfigParser.git

@@ -1,28 +1,34 @@
 compiler=g++
 cflags=-O3  -Wpedantic -fsanitize=address -g -fstack-protector -Wextra -Wall -Wextra
+testcflags=-ftest-coverage ${cflags}
 builddir=bin
 C_version=c++23
 file=main
-ofile='pidchain'
-
+ofile=pidchain
+lintfilter=-whitespace/comments,-whitespace/blank_line,-readability/todo,-build/header_guard,-whitespace/indent
+gcoverops=--exclude include/test_expect_equals.h --exclude test_parser.cpp --exclude-noncode-lines --exclude-unreachable-branches
+gcoverdir=--gcov-object-directory gcovrdir
+includes=-I include/ -I ConfigParser/include/
+testinclude= -I /usr/src/googletest/googletest/include/
 make: 		
-	${compiler} ${cflags} ${file}.cpp -std=${C_version} -I include/ -o ${builddir}/${ofile}
+	${compiler} ${cflags} ${file}.cpp -std=${C_version} ${includes} -o ${builddir}/${ofile}
 
 
 lint:
-	cppcheck main.cpp; cpplint main.cpp 
+	cppcheck main.cpp; 
+	cpplint --filter=${lintfilter} main.cpp 
 
 format:
 	clang-format -i main.cpp
 
 
 test:
-	g++ -O3 -fprofile-arcs -ftest-coverage -Wpedantic -fsanitize=address -g -fstack-protector -Wextra -Wall -Wextra -std=c++23 -I ./include/ -I /usr/src/googletest/googletest/include/ test_parser.cpp -o build/test_parser -lgtest -lgtest_main
+	${compiler} ${cflags} ${testcflags} -std=${C_version} ${includes} ${testinclude} test_${ofile}.cpp -o build/${ofile}_test -lgtest -lgtest_main
 
 coverage:
 	rm documentation/html/coverage.html
-	gcovr --html documentation/html/coverage.html
-	gcovr
+	gcovr ${gcoverops} ${gcoverdir} --html documentation/html/coverage.html
+	gcovr ${gcoverops} ${gcoverdir}
 
 
 documentation:

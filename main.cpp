@@ -15,7 +15,7 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * */
 // TODO(lou): move to a class structure
-#include "include/ConfigParser.hpp" //NOLINT
+#include <ConfigParser.hpp> //NOLINT
 #include "include/processtools.hpp" //NOLINT
 #include <iostream>                 //NOLINT
 #include <limits>                   //NOLINT
